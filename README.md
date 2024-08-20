@@ -3,7 +3,7 @@ Nano Vi-Phy is a pipeline designed for processing Oxford Nanopore Technologies (
 
 ## Quick start
 ```
-git clone --recurse-submodules git://github.com/Kaiden-exe/Nano_Vi-Phy.git
+git clone --recurse-submodules https://github.com/Kaiden-exe/Nano_Vi-Phy.git
 cd Nano_Vi-Phy
 conda create -n nanoviphy
 conda activate nanoviphy
