@@ -1,0 +1,4 @@
+[submodule "MSA_trimmer_KR"]
+	path = tools/MSA_trimmer_KR
+	url = https://github.com/Kaiden-exe/MSA_trimmer_KR.git
+	
