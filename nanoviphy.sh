@@ -331,7 +331,7 @@ echo "Mapping reads and calling consensus, $runtime" >> $timer
 
 
 ###### REPLACE FASTA HEADERS ######
-echo "Renaming consensus sequences and removing terminal Ns..."
+echo "Renaming consensus sequences"
 start=$(date '+%s.%N')
 for consensus in ${consensusSeqs[@]}; do
 	BC=$(basename "$consensus" _consensus.fasta)
@@ -341,7 +341,7 @@ done
 # Logging
 end=$(date '+%s.%N')
 runtime=$( echo "$end - $start" | bc -l )
-echo "Fixing consensus headers and removing terminal Ns, $runtime" >> $timer
+echo "Fixing consensus headers, $runtime" >> $timer
 
 ####### BUILD PHYOLOGENETIC TREE WITH BACKGROUND DATA ######
 if [ $phyloAnalysis == "Y" ]; then
