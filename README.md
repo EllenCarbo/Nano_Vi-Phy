@@ -16,5 +16,5 @@ If all dependencies passed, adjust config.sh
 
 `bash nanoviphy.sh -c config.sh`
 
-See the manual for details. 
+See the [manual](https://github.com/Kaiden-exe/Nano_Vi-Phy/blob/main/Nano_Vi-Phy_Manual.pdf) for details. 
 
