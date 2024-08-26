@@ -42,11 +42,11 @@ align_conseqs() {
 		echo "Adding $consensusCount consensus sequences to aligned database of $sequenceCount sequences" >> $sumFile
 		if [ $trim == "Y" ]; then
 			echo "Trimming alignment to length of database" >> $sumFile
-			echo "mafft --auto --thread $threads --keeplength --addlong $allCons --reorder $backgroundDB > $alnFile" >> $sumFile
-			mafft --auto --thread $threads --keeplength --addlong $allCons --reorder $backgroundDB > $alnFile 2>> $logFile
+			echo "mafft --auto --thread $threads --adjustdirection --keeplength --addlong $allCons --reorder $backgroundDB > $alnFile" >> $sumFile
+			mafft --auto --thread $threads --adjustdirection --keeplength --addlong $allCons --reorder $backgroundDB > $alnFile 2>> $logFile
 		else
-			echo "mafft --auto --thread $threads --add $allCons --reorder $backgroundDB > $alnFile" >> $sumFile
-			mafft --auto --thread $threads --keeplength --add $allCons --reorder $backgroundDB > $alnFile 2>> $logFile
+			echo "mafft --auto --thread $threads --adjustdirection --add $allCons --reorder $backgroundDB > $alnFile" >> $sumFile
+			mafft --auto --thread $threads --adjustdirection --add $allCons --reorder $backgroundDB > $alnFile 2>> $logFile
 		fi
 		rm $allCons
 		
@@ -57,16 +57,16 @@ align_conseqs() {
 			tempAln="$tmp/$(basename "$backgroundDB" .fasta)_aln.fasta"
 			echo "mafft --auto --thread $threads $backgroundDB > $tempAln" >> $sumFile
 			mafft --auto --thread $threads $backgroundDB > $tempAln 2>> $logFile
-			echo "mafft --auto --thread $threads --addlong $allCons --reorder $tempAln > $alnFile" >> $sumFile
-			mafft --auto --thread $threads --addlong $allCons --reorder $tempAln > $alnFile 2>> $logFile
+			echo "mafft --auto --thread $threads --adjustdirection --keeplength --addlong $allCons --reorder $tempAln > $alnFile" >> $sumFile
+			mafft --auto --thread $threads --adjustdirection --keeplength --addlong $allCons --reorder $tempAln > $alnFile 2>> $logFile
 			rm $tempAln
 	else
 		cat $backgroundDB > $allSeq
 		cat $allCons >> $allSeq
 		sequenceCount=$(grep ">" $allSeq | wc -l)
 		echo "Aligning $sequenceCount sequences, of which $consensusCount are consensus sequences" >> $sumFile
-		echo "mafft --auto --thread $threads $allSeq > $alnFile" >>$sumFile
-		mafft --auto --thread $threads $allSeq > $alnFile 2>> $logFile
+		echo "mafft --auto --thread $threads --adjustdirection $allSeq > $alnFile" >>$sumFile
+		mafft --auto --thread $threads --adjustdirection $allSeq > $alnFile 2>> $logFile
 		rm $allCons $allSeq
 	fi
 }
