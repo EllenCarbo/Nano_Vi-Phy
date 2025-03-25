@@ -2,7 +2,9 @@
 Pipeline of student Kaiden for analyzing Oxford Nanopore Technologies (ONT) reads into whole genome sequences by creating sample specific references, this will lead to more mapped reads and therefor, more accurate variant analysis.
 
 Main/Bioinformatic supervisor: Ellen
+
 Extra supervisor: Marion
+
 Lab technician: Fokla
 
 
